@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class BaseRequest {
-    public static Response get(String basePath){
+    public static Response get(String basePath) {
         return given()
                 .spec(BaseSpecification.getRequestSpec())
                 .when()
@@ -17,9 +17,17 @@ public class BaseRequest {
     public static Response post(String basePath) {
         return given()
                 .spec(BaseSpecification.getRequestSpec())
-                .header("Accept", "application/json")
                 .when()
-                .contentType(ContentType.JSON)
+                .post(basePath);
+    }
+
+    public static Response postJson(String basePath, Object obj) {
+        return given()
+                .spec(BaseSpecification.getRequestSpec())
+                .contentType("application/json")
+                .accept("application/json")
+                .body(obj)
+                .when()
                 .post(basePath);
     }
 

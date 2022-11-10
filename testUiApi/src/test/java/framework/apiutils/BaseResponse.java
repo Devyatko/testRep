@@ -9,6 +9,7 @@ public class BaseResponse {
     public static int getStatusCode(Response res) {
         return res
                 .then()
+                .log().all()
                 .extract().statusCode();
     }
 
@@ -40,5 +41,11 @@ public class BaseResponse {
         return res
                 .then()
                 .extract().body().jsonPath().getMap(path);
+    }
+
+    public static List getListFromBody(Response res, String path) {
+        return res
+                .then()
+                .extract().body().jsonPath().getList(path);
     }
 }
