@@ -2,7 +2,7 @@
 _________
 <font size=3 color=#000033><p style="font-variant:inherit">This project is a simple framework for performing automated UI/API tests of websites. It used design patterns:
 
-   -	Page Objects 
+   -	Page Object 
 
    -	Singleton <sub>for a driver instance</sub> 
 
