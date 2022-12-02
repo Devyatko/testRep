@@ -2,7 +2,7 @@ package framework.baseforms;
 
 import framework.baseelements.Label;
 
-public class BaseForm {
+public abstract class BaseForm {
     private Label uniqueEl;
 
     public BaseForm(Label uniqueEl){

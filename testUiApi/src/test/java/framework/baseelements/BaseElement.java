@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 
-public class BaseElement {
+public abstract class BaseElement {
     protected By byLocator;
     protected String nameElement;
 
