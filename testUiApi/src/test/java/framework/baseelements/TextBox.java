@@ -18,7 +18,8 @@ public class TextBox extends BaseElement{
         TextBox textBox = new TextBox(byLocator, nameElement);
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(10));
         if(textBox.isPresent()){
-            Logger.getLogger(TextBox.class).warn("Method wait visibility of element located and clear and sendKeys for element " + this.nameElement);
+            Logger.getLogger(TextBox.class).warn("Method waiting for element " + this.nameElement +
+                    " is present on the DOM of the page and visible");
             WebElement inputField = waitTime.until(ExpectedConditions.visibilityOfElementLocated(byLocator));
             inputField.clear();
             inputField.sendKeys(text);
