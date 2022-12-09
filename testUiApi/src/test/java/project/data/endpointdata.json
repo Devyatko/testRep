@@ -1,0 +1,6 @@
+{
+  "endPointPosts": "posts",
+  "endPointComments": "comments",
+  "endPointPostsWithId": "posts/%s",
+  "endPointCommentsWithId": "comments/%s"
+}

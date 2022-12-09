@@ -1,0 +1,8 @@
+{
+  "minSizeTitle": 8,
+  "maxSizeTitle": 20,
+  "minSizeBody": 20,
+  "maxSizeBody": 40,
+  "minSizeName": 1,
+  "maxSizeName": 8
+}
