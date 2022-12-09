@@ -1,6 +1,7 @@
 package framework.baseelements;
 
 import framework.driver.DriverSingleton;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -36,18 +37,21 @@ public abstract class BaseElement {
 
     public String getText(){
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(10));
+        Logger.getLogger(BaseElement.class).warn("Method wait presence of element located and getText for element " + this.nameElement);
         WebElement wEl = waitTime.until(ExpectedConditions.presenceOfElementLocated(byLocator));
         return wEl.getText();
     }
 
     public String getAttribute(String attributeName){
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(10));
+        Logger.getLogger(BaseElement.class).warn("Method wait presence of element located and getAttribute for element " + this.nameElement);
         WebElement wEl = waitTime.until(ExpectedConditions.presenceOfElementLocated(byLocator));
         return wEl.getAttribute(attributeName);
     }
 
     public void click() {
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(20));
+        Logger.getLogger(BaseElement.class).warn("Method wait element to be clickable and click on element " + this.nameElement);
         WebElement wEl = waitTime.until(ExpectedConditions.elementToBeClickable(byLocator));
         wEl.click();
     }
@@ -56,6 +60,7 @@ public abstract class BaseElement {
         boolean flag = false;
         try {
             WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(20));
+            Logger.getLogger(BaseElement.class).warn("Method wait presence of element located " + this.nameElement);
             WebElement wEl = waitTime.until(ExpectedConditions.presenceOfElementLocated(byLocator));
             flag = true;
         } catch (NoSuchElementException e) {
@@ -68,6 +73,7 @@ public abstract class BaseElement {
         boolean flag = false;
         try {
             WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(20));
+            Logger.getLogger(BaseElement.class).warn("Method wait not visibility of element located  " + this.nameElement);
             Boolean value = waitTime.until(not(ExpectedConditions.visibilityOfElementLocated(byLocator)));
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -78,6 +84,7 @@ public abstract class BaseElement {
 
     public void clickElementUnderNumber(int numberElement){
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(20));
+        Logger.getLogger(BaseElement.class).warn("Method wait element to be clickable and click on element " + this.nameElement);
         WebElement wEl = waitTime.until(ExpectedConditions.elementToBeClickable(byLocator));
         List<WebElement> list1 = findElements();
         list1.get(numberElement).click();
@@ -85,6 +92,7 @@ public abstract class BaseElement {
 
     public String getAttributeUnderNumberFromList(int numberElement, String attributeName){
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(10));
+        Logger.getLogger(BaseElement.class).warn("Method wait presence of element located and getAttribute for element " + this.nameElement);
         WebElement wEl = waitTime.until(ExpectedConditions.presenceOfElementLocated(byLocator));
         List<WebElement> list1 = findElements();
         return list1.get(numberElement).getAttribute(attributeName);

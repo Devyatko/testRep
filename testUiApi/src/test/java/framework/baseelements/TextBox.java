@@ -1,6 +1,7 @@
 package framework.baseelements;
 
 import framework.driver.DriverSingleton;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +18,7 @@ public class TextBox extends BaseElement{
         TextBox textBox = new TextBox(byLocator, nameElement);
         WebDriverWait waitTime = new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(10));
         if(textBox.isPresent()){
+            Logger.getLogger(TextBox.class).warn("Method wait visibility of element located and clear and sendKeys for element " + this.nameElement);
             WebElement inputField = waitTime.until(ExpectedConditions.visibilityOfElementLocated(byLocator));
             inputField.clear();
             inputField.sendKeys(text);
